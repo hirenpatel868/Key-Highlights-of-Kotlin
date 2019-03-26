@@ -84,6 +84,7 @@ By default, classes in Kotlin are final. If you are familiar with Java, you know
 
 - If the class has a primary constructor, the base must be initialized using the parameters of the primary constructor. 
         
+        
         open class Person(age: Int, name: String) {
             // some code
         }
@@ -96,12 +97,12 @@ By default, classes in Kotlin are final. If you are familiar with Java, you know
             fun playFootball() {
                 println("I am playing football.")
             }
-    }
+        }
     
    
-  - In case of no primary constructor, each base class has to initialize the base (using super keyword), or delegate to another constructor
+ - In case of no primary constructor, each base class has to initialize the base (using super keyword), or delegate to another constructor
   
-         open class Log {
+        open class Log {
             var data: String = ""
             var numberOfData = 0
             constructor(_data: String) {
