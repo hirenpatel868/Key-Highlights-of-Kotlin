@@ -94,4 +94,51 @@ What will be the equivalent Kotlin code for this?
          get()= 20
       
       
+### companion objects
+If you are familiar with Java, you may relate companion objects with static methods, even though how they work internally is totally different. Kotlin doesn’t have static members or member functions. 
+
+Before taking about companion objects, let's take an example to access members of a class.
+
+        class Person {
+            fun callMe() = println("I'm called.")
+        }
+
+        fun main(args: Array<String>) {
+            val p1 = Person()
+
+            // calling callMe() method using object p1
+            p1.callMe()    
+        }
+        
+Here, we created an object p1 of the Person class to call callMe() method. That's how things normally work.
+
+However, in Kotlin, you can also call callMe() method by using the class name, i.e, Person in this case. For that, you need to create a companion object by marking object declaration with companion keyword.
+
+        class Person {
+            companion object Test {
+                fun callMe() = println("I'm called.")
+            }
+        }
+
+        fun main(args: Array<String>) {
+            Person.callMe()
+        }
+        
+The name of the companion object is optional and can be omitted.
+        
+       class Person {
+    
+            // name of the companion object is omitted
+            companion object {
+                fun callMe() = println("I'm called.")
+            }
+        }
+
+        fun main(args: Array<String>) {
+            Person.callMe()
+        }
+
+ 
+ 
+      
   
