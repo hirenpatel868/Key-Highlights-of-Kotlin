@@ -7,7 +7,7 @@ In Kotlin, there are two constructors:
 - Primary constructor - concise way to initialize a class
 - Secondary constructor - allows you to put additional initialization logic
 
-- Primary constructor : 
+Primary constructor : 
 
 The primary constructor is part of the class header. Here's an example:
 
@@ -49,7 +49,7 @@ You can provide default value to constructor parameters
         }
     }
     
-- Kotlin Secondary Constructor : 
+Kotlin Secondary Constructor : 
     In Kotlin, a class can also contain one or more secondary constructors. They are created using constructor keyword
     The most common use of secondary constructor comes up when you need to extend a class that provides multiple constructors that initialize the class in different ways
     
@@ -268,7 +268,7 @@ What will be the equivalent Kotlin code for this?
          get()= 20
       
       
-### companion objects
+### Companion objects
 If you are familiar with Java, you may relate companion objects with static methods, even though how they work internally is totally different. Kotlin doesn’t have static members or member functions. 
 
 Before taking about companion objects, let's take an example to access members of a class.
