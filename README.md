@@ -82,7 +82,7 @@ By default, classes in Kotlin are final. If you are familiar with Java, you know
         // other features of businessman
     }
 
-- If the class has a primary constructor, the base must be initialized using the parameters of the primary constructor. 
+If the class has a primary constructor, the base must be initialized using the parameters of the primary constructor. 
         
         
         open class Person(age: Int, name: String) {
@@ -100,7 +100,7 @@ By default, classes in Kotlin are final. If you are familiar with Java, you know
         }
     
    
- - In case of no primary constructor, each base class has to initialize the base (using super keyword), or delegate to another constructor
+ In case of no primary constructor, each base class has to initialize the base (using super keyword), or delegate to another constructor
   
         open class Log {
             var data: String = ""
@@ -186,7 +186,7 @@ Instead, we can add a ? after the data type of that property which declares that
                                       //nullVariable can be null.
     
     
-Safe Calls (?.)
+- Safe Calls (?.)
 Another way of using a nullable property is safe call operator ?.
 This calls the method if the property is not null or returns null if that property is null without throwing an NPE (null pointer exception).
 
@@ -205,7 +205,7 @@ To perform a certain operation only for non-null values, you can use the safe ca
      item?.let { println(it) } // prints A and ignores null
     }
     
-Elvis Operator (?:)
+- Elvis Operator (?:)
 This one is similar to safe calls except the fact that it can return a non-null value if the calling property is null even
 
 val result = nullableVariable?.someMethodCall()
@@ -213,7 +213,7 @@ val result = nullableVariable?.someMethodCall()
 The Elvis operator will evaluate the left expression and will return it if it’s not null else will evaluate the right side expression. Please note that the right side expression will only be called if the left side expression is null.
 
 
-The !! Operator
+- The !! Operator
 This operator is used to explicitly tell the compiler that the property is not null and if it’s null, please throw a null pointer exception (NPE)
 
 nullableVariable!!.someMethodCall()
@@ -315,7 +315,7 @@ The name of the companion object is optional and can be omitted.
  
  
       
-  ### vararg : Variable number of arguments 
+### vararg : Variable number of arguments 
   
 We need a function which takes n number as inputs and returns the average of all the inputs. If the size of n variables is not fixed, we usually convert it into an array or list and pass it to function.
   
