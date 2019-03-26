@@ -1,7 +1,7 @@
 # Kotlin-Key-Elements
 
 
-## Type inference.
+## Safe Check
 
 In Kotlin, A normal property can’t hold a null value and will show a compile error.
 
@@ -18,7 +18,7 @@ Instead, we can add a ? after the data type of that property which declares that
     nullableVariable.someMethodCall() //will highlight compilation error
                                       //as compiler is not sure as
                                       //nullVariable can be null.
- Explicit Null Check
+Explicit Null Check
     
     if ( null != nullableVariable) {
      nullableVariable.someMethodCall()
@@ -27,7 +27,7 @@ Instead, we can add a ? after the data type of that property which declares that
     }
     
     
- Safe Calls (?.)
+Safe Calls (?.)
 Another way of using a nullable property is safe call operator ?.
 This calls the method if the property is not null or returns null if that property is null without throwing an NPE (null pointer exception).
 
@@ -47,6 +47,8 @@ To perform a certain operation only for non-null values, you can use the safe ca
     
     
 ### Getter and Setter in kotlin
+
+Java code : 
 
       private String firstName;
       private String lastName;
@@ -74,14 +76,14 @@ What will be the equivalent Kotlin code for this?
                lastName = nameArray[1]
            }
            
-   How can I make setter private?
-   Add private keyword before set.
+ 1. How can I make setter private?
+    Add private keyword before set.
 
     public var name: String = "John"
     private set
     
- How can I override the getter or setter in an extending class?
- Define the variable as open in the base class and use override keyword in the extending class.
+ 2. How can I override the getter or setter in an extending class?
+    Define the variable as open in the base class and use override keyword in the extending class.
 
      //Base class
      open var age: Int = 0
@@ -89,4 +91,6 @@ What will be the equivalent Kotlin code for this?
      //Extending class
      override var age: Int = 0
       get()= 20
+      
+      
   
