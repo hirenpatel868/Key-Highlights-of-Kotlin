@@ -85,12 +85,13 @@ What will be the equivalent Kotlin code for this?
  2. How can I override the getter or setter in an extending class?
     Define the variable as open in the base class and use override keyword in the extending class.
 
-     //Base class
-     open var age: Int = 0
-      get() = 10
-     //Extending class
-     override var age: Int = 0
-      get()= 20
+         //Base class
+         open var age: Int = 0
+         get() = 10
+          
+         //Extending class
+         override var age: Int = 0
+         get()= 20
       
       
   
