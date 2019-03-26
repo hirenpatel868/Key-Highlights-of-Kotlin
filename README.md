@@ -315,7 +315,7 @@ The name of the companion object is optional and can be omitted.
  
  
       
-  ### vararg
+  ### vararg : Variable number of arguments 
   
 We need a function which takes n number as inputs and returns the average of all the inputs. If the size of n variables is not fixed, we usually convert it into an array or list and pass it to function.
   
@@ -330,7 +330,7 @@ We need a function which takes n number as inputs and returns the average of all
     val arrayList = arrayListOf(1, 2, 3, 4)
     val result = getAverage(arrayList)
     
-    Now, what if the function itself takes n inputs and we don’t need to convert it into an array.
+Now, what if the function itself takes n inputs and we don’t need to convert it into an array.
 
        fun getAverage(vararg input: Int): Float {
         var sum = 0.0f
@@ -341,3 +341,76 @@ We need a function which takes n number as inputs and returns the average of all
         }
         val result1 = getAverage(1, 2, 3)
         val result2 = getAverage(1, 2, 3, 4, 5)
+        
+        
+        
+### Infix Notation : Kotlin
+Calling a public function of a class without dot and parentheses of the parameter in Kotlin. Kotlin provides infix notation with which we can call a function with the class object without using a dot and parentheses across the parameter.
+
+        infix fun Int.add(b : Int) : Int = this + b
+        val x = 10.add(20)
+        val y = 10 add 20        // infix call
+        
+        
+### Equality in Kotlin (‘==’, ‘===’ and ‘.equals’)
+== operator is used to compare the data of two variables. == operator in Kotlin only compares the data or variables, whereas in Java or other languages == is generally used to compare the references.
+=== operator is used to compare the reference of two variable or object.
+
+### when’ operator in Kotlin
+when operator is a replacement of ‘switch’ operator in other languages. Different use cases 
+
+        var intNumber = 10
+         when (intNumber) {
+            1 -> print(“value is 1”)
+            2 -> print(“value is 2”)
+            else -> {
+               print(“value of intNumber is neither 1 nor 2”)
+            }
+         }
+         
+         
+         var count = 100
+         when (count) {
+            in 0 until 100 -> {
+            //count is between 1 to 99
+            count++
+         } 
+         else -> {
+            //count is greater than 99
+            //set it to 0
+            count = 0
+         }
+        }
+        
+        
+        val boolValue : Boolean = false
+ 
+         when (boolValue) {
+            false -> {
+               print(“value is false”)
+            }
+            true -> {
+               print(“value is true”)
+            }
+         }
+
+
+        val shape : Shape = Circle()
+
+         when (shape) {
+            is Circle -> print(“shape is a Circle class object”)
+            is Square -> print(“shape is a Square class object”)
+            else -> {
+               print(“invalid shape”)
+            }
+         }
+         
+         
+          val num = 10
+         when {
+            isPrime(num) -> print(“num is a prime number”)
+            isComposite(num) -> print(“num is a composite number”)
+            else -> {
+               print(“num is neither prime nor composit”)
+            }
+         }
