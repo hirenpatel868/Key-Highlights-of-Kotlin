@@ -143,6 +143,30 @@ By default, classes in Kotlin are final. If you are familiar with Java, you know
             val girl = Girl()
             girl.displayAge(31)
         }
+        
+You can override property of the base class in similar way.
+        
+         // Empty primary constructor
+        open class Person() {
+            open var age: Int = 0
+                get() = field
+
+                set(value) {
+                    field = value
+                }
+        }
+
+        class Girl: Person() {
+
+            override var age: Int = 0
+                get() = field
+
+                set(value) {
+                    field = value - 5
+                }
+        }
+
+
 ### Safe Check
 
 In Kotlin, A normal property can’t hold a null value and will show a compile error.
@@ -160,20 +184,15 @@ Instead, we can add a ? after the data type of that property which declares that
     nullableVariable.someMethodCall() //will highlight compilation error
                                       //as compiler is not sure as
                                       //nullVariable can be null.
-Explicit Null Check
-    
-    if ( null != nullableVariable) {
-     nullableVariable.someMethodCall()
-    } else {
-     // fallback flow
-    }
     
     
 Safe Calls (?.)
 Another way of using a nullable property is safe call operator ?.
 This calls the method if the property is not null or returns null if that property is null without throwing an NPE (null pointer exception).
 
-nullableVariable?.someMethodCall()
+    nullableVariable?.someMethodCall()
+    
+    
 Safe calls are useful in chains. For example, if Bob, an Employee, may be assigned to a Department (or not), that in turn may have another Employee as a department head, then to obtain the name of Bob’s department head (if any), we write the following
 
 bob?.department?.head?.name
@@ -185,6 +204,19 @@ To perform a certain operation only for non-null values, you can use the safe ca
     for (item in listWithNulls) {
      item?.let { println(it) } // prints A and ignores null
     }
+    
+Elvis Operator (?:)
+This one is similar to safe calls except the fact that it can return a non-null value if the calling property is null even
+
+val result = nullableVariable?.someMethodCall()
+                       ?: fallbackIfNullMethodCall()
+The Elvis operator will evaluate the left expression and will return it if it’s not null else will evaluate the right side expression. Please note that the right side expression will only be called if the left side expression is null.
+
+
+The !! Operator
+This operator is used to explicitly tell the compiler that the property is not null and if it’s null, please throw a null pointer exception (NPE)
+
+nullableVariable!!.someMethodCall()
     
     
     
