@@ -1,7 +1,148 @@
 # Kotlin-Key-Elements
 
+### Kotlin Constructors
 
-## Safe Check
+In Kotlin, there are two constructors:
+
+- Primary constructor - concise way to initialize a class
+- Secondary constructor - allows you to put additional initialization logic
+
+- Primary constructor : 
+
+The primary constructor is part of the class header. Here's an example:
+
+    class Person(val firstName: String, var age: Int) {
+        // class body
+    }
+
+The primary constructor has a constrained syntax, and cannot contain any code.
+To put the initilization code (not only code to initialize properties), initializer block is used. It is prefixed with init keyword.
+
+    fun main(args: Array<String>) {
+        val person1 = Person("joe", 25)
+    }
+
+    class Person(fName: String, personAge: Int) {
+        val firstName: String
+        var age: Int
+
+        // initializer block
+        init {
+            firstName = fName.capitalize()
+            age = personAge
+
+            println("First Name = $firstName")
+            println("Age = $age")
+        }
+    }
+    
+You can provide default value to constructor parameters 
+
+    class Person(_firstName: String = "UNKNOWN", _age: Int = 0) {
+        val firstName = _firstName.capitalize()
+        var age = _age
+
+        // initializer block
+        init {
+            println("First Name = $firstName")
+            println("Age = $age\n")
+        }
+    }
+    
+- Kotlin Secondary Constructor : 
+    In Kotlin, a class can also contain one or more secondary constructors. They are created using constructor keyword
+    The most common use of secondary constructor comes up when you need to extend a class that provides multiple constructors that initialize the class in different ways
+    
+       class Log {
+            constructor(data: String) {
+                // some code
+            }
+            constructor(data: String, numberOfData: Int) {
+                // some code
+            }
+        }
+
+### Open - Kotlin inheritance
+
+By default, classes in Kotlin are final. If you are familiar with Java, you know that a final class cannot be subclassed. By using the open annotation on a class, compiler allows you to derive new classes from it.
+
+    open class Person(age: Int) {
+        // code for eating, talking, walking
+    }
+
+    class MathTeacher(age: Int): Person(age) {
+        // other features of math teacher
+    }
+
+    class Footballer(age: Int): Person(age) {
+        // other features of footballer
+    }
+
+    class Businessman(age: Int): Person(age) {
+        // other features of businessman
+    }
+
+- If the class has a primary constructor, the base must be initialized using the parameters of the primary constructor. 
+        
+        open class Person(age: Int, name: String) {
+            // some code
+        }
+
+        class Footballer(age: Int, name: String, club: String): Person(age, name) {
+            init {
+                println("Football player $name of age $age and plays for $club.")
+            }
+
+            fun playFootball() {
+                println("I am playing football.")
+            }
+    }
+    
+   
+  - In case of no primary constructor, each base class has to initialize the base (using super keyword), or delegate to another constructor
+  
+         open class Log {
+            var data: String = ""
+            var numberOfData = 0
+            constructor(_data: String) {
+
+            }
+            constructor(_data: String, _numberOfData: Int) {
+                data = _data
+                numberOfData = _numberOfData
+                println("$data: $numberOfData times")
+            }
+        }
+
+        class AuthLog: Log {
+            constructor(_data: String): this("From AuthLog -> + $_data", 10) {
+            }
+
+            constructor(_data: String, _numberOfData: Int): super(_data, _numberOfData) {
+            }
+        }
+
+### Overriding Member Functions and Properties
+
+         // Empty primary constructor
+        open class Person() {
+            open fun displayAge(age: Int) {
+                println("My age is $age.")
+            }
+        }
+
+        class Girl: Person() {
+
+            override fun displayAge(age: Int) {
+                println("My fake age is ${age - 5}.")
+            }
+        }
+
+        fun main(args: Array<String>) {
+            val girl = Girl()
+            girl.displayAge(31)
+        }
+### Safe Check
 
 In Kotlin, A normal property can’t hold a null value and will show a compile error.
 
