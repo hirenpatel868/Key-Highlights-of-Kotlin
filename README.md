@@ -315,4 +315,29 @@ The name of the companion object is optional and can be omitted.
  
  
       
+  ### vararg
   
+We need a function which takes n number as inputs and returns the average of all the inputs. If the size of n variables is not fixed, we usually convert it into an array or list and pass it to function.
+  
+      fun getAverage(numbersList: List<Int>): Float {
+
+        var sum = 0.0f
+        for (item in numbersList) {
+            sum += item
+        }
+        return (sum / numbersList.size)
+    }
+    val arrayList = arrayListOf(1, 2, 3, 4)
+    val result = getAverage(arrayList)
+    
+    Now, what if the function itself takes n inputs and we don’t need to convert it into an array.
+
+       fun getAverage(vararg input: Int): Float {
+        var sum = 0.0f
+        for (item in input) {
+            sum += item
+            }
+            return (sum / input.size)
+        }
+        val result1 = getAverage(1, 2, 3)
+        val result2 = getAverage(1, 2, 3, 4, 5)
