@@ -1,5 +1,24 @@
 # Key Highlights of Kotlin
 
+### Ranges : 
+
+Basically it allows to do define starting and ending values and doing all the nesti caliculation 	
+
+val oneTo10 = 1..10
+val apha = "A".."z"
+Lets say we want to search R inside alpha. 
+print ("R in Alpha : $ {"R" in alpha}")
+
+it tell us if 'R' is stored in Alpha or not. 
+
+
+val tenTo1 = 10.downTo(1)
+val twoTo20 = 2.rangeTo(20)
+val rng 3 = ontToTo.step(3)
+
+for ( x in rng3) println("rng3 : $x")
+for (x in tenTo1.reversed()) println(Reverse : $x")
+
 ### Kotlin Constructors
 
 In Kotlin, there are two constructors:
