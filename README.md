@@ -433,3 +433,103 @@ when operator is a replacement of ‘switch’ operator in other languages. Diff
                print(“num is neither prime nor composit”)
             }
          }
+
+
+### Declaring List in Kotlin
+
+        var nums = listOf(1,2,3,4)
+        for(i in nums){ 
+        println(i)
+        }
+
+        printing index of array list
+
+        for((i,e) in nums.withIndex())
+        {
+
+           println("$i:$e")
+        }
+
+where i is index
+      e is element at that index.
+
+
+
+### Maps:
+
+        var aliens = TreeMap<String,Int>()
+        aliens["abc"]= 654
+        alines["def"]= 988
+
+        fetch from map:
+        for((name,age) in aliens){
+          println("$name:$age") 
+
+        }
+
+
+### Functions:
+
+    fun add(a:Int,b:Int):Int=a+b
+    //Without return statement
+
+    fun max(a:Int,b:Int):Int = if(a>b) a else b
+
+    Changing class name in Kotlin
+    @file:JvmName("First")
+
+    this generates file with name First.class
+
+
+    Convert Double To Int:
+    return (x*0.04).toInt()
+
+    Functions with Default Parameters:
+    fun calcAmount(amnt:Int,int:Double = 0.02) : Int
+
+    callinf function with parameter name specified
+    calcAmount(amnt=200,int=0.03)
+
+
+    Extension Function  & infix :
+
+    infix fun Alien.plus(Alien:a): Alien {
+        var newAlien = Alien()
+         newAlien.skills = this.skills+" "+a.skills
+         return newAlien
+
+    }
+
+    calling this function
+     var a1 = Alien();
+      a1.skills = "Java"
+    var a2 = Alien();
+    a2.skills  = "SQL"
+
+    var a3 = a1 plus a2
+    println(a3.skills)
+    Note: infix function takes only single parameter
+
+    Operator Overloading:
+
+    operator infix fun Alien.plus(Alien:a): Alien {
+        var newAlien = Alien()
+         newAlien.skills = this.skills+" "+a.skills
+         return newAlien
+
+    }
+
+
+    calling this function
+     var a1 = Alien();
+      a1.skills = "Java"
+    var a2 = Alien();
+    a2.skills  = "SQL"
+
+    var a3 = a1 + a2
+    println(a3.skills)
+
+
+
+
+
